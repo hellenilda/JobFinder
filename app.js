@@ -10,9 +10,9 @@ app.listen(PORT, function() {
 })
 
 // body parser
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// Conecção com o banco
+// Conexão com o banco
 db
     .authenticate()
     .then(() => {
@@ -26,3 +26,6 @@ db
 app.get('/', (requisicao, resposta) => {
     resposta.send('Está funcionando')
 })
+
+// rotas do jobs
+app.use('/jobs', require('./routes/jobs'))
