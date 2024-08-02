@@ -2,13 +2,13 @@ const express = require('express')
 const router = express.Router()
 const Job = require('../models/Job')
 
-router.get('/test', (requisicao, resposta) => {
-    resposta.send('Tudo certo')
+router.get('/test', (req, res) => {
+    res.send('Tudo certo')
 })
 
 // POST: Job
-router.post('/add', (requisicao, resposta) => {
-    let {titulo, salario, empresa, descricao, email, new_job} = requisicao.body
+router.post('/add', (req, res) => {
+    let {titulo, salario, empresa, descricao, email, new_job} = req.body
   
     // insert
     Job.create({
@@ -19,7 +19,7 @@ router.post('/add', (requisicao, resposta) => {
         email,
         new_job
     })
-    .then(() => resposta.redirect('/'))
+    .then(() => res.redirect('/'))
     .catch(err => console.log(err))
 })
 

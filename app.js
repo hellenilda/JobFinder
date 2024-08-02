@@ -23,8 +23,8 @@ db
     })
 
 // Rotas
-app.get('/', (requisicao, resposta) => {
-    resposta.send('Está funcionando')
+app.get('/', (req, res) => {
+    res.send('Está funcionando')
 })
 
 // rotas do jobs
