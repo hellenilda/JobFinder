@@ -24,7 +24,8 @@ db
 
 // Rotas
 app.get('/', (req, res) => {
-    res.send('Está funcionando')
+    // __dirname = "D:\Meus arquivos\Algoritmos\Compass UOL\Cursos de JavaScript\Node.JS\"
+    res.sendFile(__dirname + '/view/index.html')
 })
 
 // rotas do jobs
